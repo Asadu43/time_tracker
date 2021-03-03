@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: ">=2.10.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -30,6 +30,9 @@ dependencies:
   cupertino_icons: ^1.0.0
   sign_button: ^1.0.2
   google_fonts: ^1.1.2
+  firebase_core: ^0.7.0
+  firebase_auth: ^0.20.1
+  google_sign_in: ^4.5.9
 
 dev_dependencies:
   flutter_test:
