@@ -1,8 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sign_button/constants.dart';
 import 'package:sign_button/create_button.dart';
+import 'package:time_tracking_app/Screens/email_sign_in.dart';
 import 'package:time_tracking_app/Services/auth.dart';
 
 class SignInPage extends StatelessWidget {
@@ -17,6 +17,33 @@ class SignInPage extends StatelessWidget {
    }catch (e){
      print (e.toString());
    }
+  }
+
+  Future<void> _signInWithGoogle() async {
+
+    try {
+      await auth.signInWithGoogle();
+    }catch (e){
+      print (e.toString());
+    }
+  }
+
+  Future<void> _signInWithFacebook() async{
+    try {
+      await auth.signInWithFacebook();
+    }catch (e){
+      print (e.toString());
+    }
+
+  }
+
+  void _signInwithEmail(BuildContext context){
+  //  TODO SOMETHING
+    Navigator.of(context).push(MaterialPageRoute<void>(
+      fullscreenDialog: true,
+      builder: (context) => EmailSignIn( auth: auth,),
+    ));
+
   }
 
 
@@ -48,7 +75,7 @@ class SignInPage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(5.0))),
                 buttonSize: ButtonSize.large,
                 btnText: "Sign in with Google",
-                onPressed: () {}),
+                onPressed:_signInWithGoogle,),
             SizedBox(
               height: 10.0,
             ),
@@ -59,7 +86,7 @@ class SignInPage extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(5.0))),
                 buttonSize: ButtonSize.large,
                 btnColor: Colors.indigo,
-                onPressed: () {}),
+                onPressed: _signInWithFacebook,),
             SizedBox(
               height: 10.0,
             ),
@@ -71,7 +98,7 @@ class SignInPage extends StatelessWidget {
                 btnColor: Colors.teal[700],
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(5.0))),
-                onPressed: () {}),
+                onPressed: () =>_signInwithEmail(context)),
             SizedBox(
               height: 15.0,
             ),
