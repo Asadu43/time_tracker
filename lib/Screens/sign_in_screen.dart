@@ -51,8 +51,20 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Time Tracker'),
-        centerTitle: true,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Flutter",
+              style: TextStyle(fontSize: 22),
+            ),
+            Text(
+              "Blog",
+              style: TextStyle(fontSize: 22, color: Colors.blue),
+            )
+          ],
+        ),
+        elevation: 0.0,
       ),
       body: Center(
         child: Column(

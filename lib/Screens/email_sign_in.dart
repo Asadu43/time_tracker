@@ -130,6 +130,21 @@ class _EmailSignInState extends State<EmailSignIn> {
 
     }catch (e){
       print(e.toString());
+      showDialog(
+
+          context: context,
+        builder: (context){
+            return AlertDialog(
+              title: Text("Sign In failed"),
+              content: Text(e.toString()),
+              actions: [
+                FlatButton(onPressed: (){
+                  Navigator.of(context).pop();
+                }, child: Text("OK"))
+              ],
+            );
+        }
+      );
     }
    }
 }

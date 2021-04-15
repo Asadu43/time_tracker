@@ -23,7 +23,7 @@ class LandingPage extends StatelessWidget {
                auth: auth,
             );
           }
-          return Home(
+          return HomePage(
             auth: auth,
           );
 
